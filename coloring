@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# global default
+NORMAL="$(tput sgr0 | sed "s/[^0-9]*//g")"
+FILE="$NORMAL"
+DIR="$(tput setaf 4 | sed "s/[^0-9]*//g")"
+EXEC="$(tput setaf 2 | sed "s/[^0-9]*//g")"
+SETUID="$(tput bold | sed "s/[^0-9]*//g");$(tput setaf 2 | sed "s/[^0-9]*//g")"
+WRITABLE="$(tput bold | sed "s/[^0-9]*//g");$(tput setaf 4 | sed "s/[^0-9]*//g")"
+
+# symbolic link
+LINK="$(tput setaf 6 | sed "s/[^0-9]*//g")"
+ORPHAN="$(tput setaf 1 | sed "s/[^0-9]*//g")"
+MISSING="$ORPHAN"
+
+# for OSX
+export CLICOLOR=1
+export LSCOLORS='exgxxxxxcxxxCxCxExEx'
+
+# for Linux
+export LS_COLORS="no=$NORMAL:fi=$FILE:di=$DIR:ln=$LINK:or=$ORPHAN:mi=$MISSING:ex=$EXEC:su=$SETUID:sg=$SETUID:tw=$WRITABLE:ow=$WRITABLE"
+
+
+# aliases for common commands to enable color output
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'

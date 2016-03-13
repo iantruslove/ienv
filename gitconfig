@@ -1,0 +1,7 @@
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.ienv/gitignore_global
+	editor = /usr/bin/vim
+[color]
+	ui = auto

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# cd dir1 same as dir1
+shopt -s autocd
+
+# auto correct spelling
+shopt -s cdspell
+
+# save multiline commands in same history entry
+shopt -s cmdhist
+
+shopt -s dirspell
+
+# append instead of overwrite history file
+shopt -s histappend
+
+# update COLUMNS and LINES
+shopt -s checkwinsize
+
+export HISTIGNORE="ls:ll:pwd:gs:gl:pwd:history:clear"
+export HISTFILESIZE=10000
+export HISTSIZE=10000
+export HISTCONTROL=ignoredups:erasedups
+export HISTTIMEFORMAT="%F %T "
+export PROMPT_COMMAND="history -a; history -n${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
