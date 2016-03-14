@@ -73,7 +73,7 @@ function root_check() {
 }
 
 PS1="$BASE1\$(LS=\$?; right_prompt; exit \$LS)"
-PS1+="$RED\$(status_symbol \$?)\n"
+PS1+="$RED\$(status_symbol \$?)$RESET\n"
 PS1+="$BASE0\$(ppwd)$GREEN\$(git_prompt)"
 PS1+="$ORANGE\$(root_check)"
 PS1+="$BASE01\\$ $RESET"
