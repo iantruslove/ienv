@@ -22,4 +22,4 @@ export HISTFILESIZE=10000
 export HISTSIZE=10000
 export HISTCONTROL=ignoredups:erasedups
 export HISTTIMEFORMAT="%F %T "
-export PROMPT_COMMAND="history -a; history -n${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+export PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
