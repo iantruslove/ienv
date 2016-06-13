@@ -9,18 +9,20 @@ set ttyfast
 
 """ Persistent undos
 if has('persistent_undo')
-	set undodir=~/.vim/undos
-	set undofile
-	set undolevels=3000
-	set undoreload=10000
+  set undodir=~/.vim/undos
+  set undofile
+  set undolevels=3000
+  set undoreload=10000
 endif
 
 """ spacing and shifting
-set tabstop=4           " tab width of 4 spaces 
-set softtabstop=4       " tab = 4 spaces
+set nowrap
+set tabstop=4
 set shiftwidth=4
+set expandtab
 set autoindent
 set smartindent
+set shiftround 
 
 """ misc
 set laststatus=2        " always show status bar
@@ -30,6 +32,16 @@ set matchtime=5         " Bracket blinking
 set hlsearch incsearch  " search highlight
 set wildmenu            " menu for commands
 set mouse=a             " enable mouse in all modes
+set list
+
+""" List chars
+set listchars=""
+set listchars=tab:\ \
+set listchars+=trail:·
+set listchars+=tab:»·
+set listchars+=extends:>
+set listchars+=precedes:<
+set showbreak=↪ " Visualize wrapped lines when wrap toggled
 
 """ folding
 set foldenable
@@ -46,9 +58,9 @@ set background=light
 set completeopt=longest,menuone,preview
 if has("autocmd") && exists("+omnifunc")
   autocmd Filetype *
-          \	if &omnifunc == "" |
-          \		setlocal omnifunc=syntaxcomplete#Complete |
-          \	endif
+    \ if &omnifunc == "" |
+    \     setlocal omnifunc=syntaxcomplete#Complete |
+    \ endif
 endif
 
 """ load plugins
@@ -57,10 +69,10 @@ execute pathogen#infect()
 
 """ try to set colorscheme
 try
-	let g:solarized_termtrans=1
-	colorscheme solarized
+  let g:solarized_termtrans=1
+  colorscheme solarized
 catch
-	" do nothing
+  " do nothing
 endtry
 
 """ remappings
@@ -79,3 +91,4 @@ autocmd FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
+autocmd FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")

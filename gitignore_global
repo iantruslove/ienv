@@ -9,3 +9,6 @@ __MACOSX
 ehthumbs.db
 Thumbs.db
 Desktop.ini
+*~
+*.swp
+*.swo
