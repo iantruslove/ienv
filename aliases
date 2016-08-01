@@ -19,23 +19,29 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 
 alias dl="cd ~/Downloads"
-alias d="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias w="cd /Work/"
+alias gp="cd $GOPATH"
 
 alias ls='ls'
 alias ll='ls -ahl'
 
 ### git and related
-alias gs='git status '
-alias ga='git add '
-alias gc='git commit'
-alias gd='git diff'
-alias gco='git checkout'
+alias g='git'
+alias s='git status'
+alias a='git add'
+alias c='git commit'
+alias cm='git commit -m'
+alias d='git diff'
+alias co='git checkout'
 # __git_complete gco _git_checkout
-alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) - %C(normal)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(bold normal)%s%C(reset) %C(cyan)- %an%C(reset)' --all"
+alias l="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) - %C(normal)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(bold normal)%s%C(reset) %C(cyan)- %an%C(reset)'"
 alias gmo='MASTER=`git rev-parse --abbrev-ref HEAD` && git checkout online && git merge $MASTER && git push && git checkout $MASTER'
 alias gmp='MASTER=`git rev-parse --abbrev-ref HEAD` && git checkout production && git merge $MASTER && git push && git checkout $MASTER'
+alias gms='MASTER=`git rev-parse --abbrev-ref HEAD` && git checkout staging && git merge $MASTER && git push && git checkout $MASTER'
+
+### tools
+alias v='mvim'
 
 ### system
 # IP addresses

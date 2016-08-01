@@ -31,8 +31,8 @@ set showmatch           " Show matching brackets
 set matchtime=5         " Bracket blinking
 set hlsearch incsearch  " search highlight
 set wildmenu            " menu for commands
-set mouse=a             " enable mouse in all modes
 set list
+set directory=$HOME/.vim/swapfiles//
 
 """ List chars
 set listchars=""
@@ -43,11 +43,15 @@ set listchars+=extends:>
 set listchars+=precedes:<
 set showbreak=↪ " Visualize wrapped lines when wrap toggled
 
+augroup golang
+    autocmd BufRead *.go set nolist
+augroup END
+
 """ folding
 set foldenable
 set foldmethod=syntax
 set foldlevelstart=3
-set foldnestmax=5
+set foldnestmax=4
 
 """ colors please
 syntax enable
@@ -84,6 +88,10 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+noremap <Up> <C-a>
+noremap <Down> <C-x>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 """ automatics
 autocmd FocusLost * :set number
