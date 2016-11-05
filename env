@@ -5,7 +5,7 @@ export LC_ALL=en_US.UTF-8
 
 export PATH=$PATH:~/.bin
 
-# android 
+# android
 export ANDROID_HOME=/usr/local/opt/android-sdk/
 export PATH=$PATH:/usr/local/opt/android-sdk/platform-tools
 export PATH=$PATH:/usr/local/opt/android-sdk/tools
@@ -14,7 +14,15 @@ export PATH=$PATH:/usr/local/opt/android-sdk/tools
 export GOPATH="$HOME/go/"
 export PATH=$PATH:~/go/bin
 
-# git 
+# git
 export GIT_EXEC_PATH=~/.bin/:$(git --exec-path)
 
 export EDITOR='vim';
+
+# fzf
+export FZF_COMPLETION_TRIGGER='ff'
+_fzf_compgen_path() {
+  ag -g "" "$1"
+}
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
