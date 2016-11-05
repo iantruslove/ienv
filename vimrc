@@ -33,6 +33,7 @@ set hlsearch incsearch  " search highlight
 set wildmenu            " menu for commands
 set list
 set directory=$HOME/.vim/swapfiles//
+set rtp+=~/.fzf
 
 """ List chars
 set listchars=""
@@ -75,9 +76,15 @@ execute pathogen#infect()
 try
   let g:solarized_termtrans=1
   colorscheme solarized
+  hi StatusLine term=none cterm=none
 catch
   " do nothing
 endtry
+
+""" Statusline
+set statusline=%<%F\ %m\ %{&ff}\/%{&fileencoding?&fileencoding:&encoding}
+set statusline+=%=
+set statusline+=0x\%02.2B\(\%03.3b)\ %3v\ %10(%l/%L%)
 
 """ remappings
 nnoremap <leader><space> :nohlsearch<CR>  " clear search highlight
