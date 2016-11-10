@@ -9,6 +9,7 @@ set ttyfast
 
 """ Persistent undos
 if has('persistent_undo')
+  call system('mkdir ~/.vim/undos')
   set undodir=~/.vim/undos
   set undofile
   set undolevels=3000
@@ -22,7 +23,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
-set shiftround 
+set shiftround
 
 """ misc
 set laststatus=2        " always show status bar
@@ -32,6 +33,7 @@ set matchtime=5         " Bracket blinking
 set hlsearch incsearch  " search highlight
 set wildmenu            " menu for commands
 set list
+set hidden              " keep undo history / dont remove buffers
 set directory=$HOME/.vim/swapfiles//
 set rtp+=~/.fzf
 
@@ -94,11 +96,18 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+map J :bn<cr>
+map K :bp<cr>
 
 noremap <Up> <C-a>
 noremap <Down> <C-x>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 """ automatics
 autocmd FocusLost * :set number
