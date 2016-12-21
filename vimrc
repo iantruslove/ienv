@@ -17,7 +17,7 @@ if has('persistent_undo')
 endif
 
 """ spacing and shifting
-set nowrap
+set wrap
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -28,14 +28,19 @@ set shiftround
 """ misc
 set laststatus=2        " always show status bar
 set relativenumber      " line numbers
-set showmatch           " Show matching brackets
-set matchtime=5         " Bracket blinking
+" set showmatch           " Show matching brackets
+" set matchtime=5         " Bracket blinking
 set hlsearch incsearch  " search highlight
 set wildmenu            " menu for commands
 set list
 set hidden              " keep undo history / dont remove buffers
 set directory=$HOME/.vim/swapfiles//
 set rtp+=~/.fzf
+
+set splitright
+set splitbelow
+
+set backspace=indent,eol,start
 
 """ List chars
 set listchars=""
@@ -79,9 +84,22 @@ try
   let g:solarized_termtrans=1
   colorscheme solarized
   hi StatusLine term=none cterm=none
+  hi MatchParen cterm=bold ctermbg=none ctermfg=red
 catch
   " do nothing
 endtry
+
+"" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 """ Statusline
 set statusline=%<%F\ %m\ %{&ff}\/%{&fileencoding?&fileencoding:&encoding}
@@ -96,11 +114,11 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-map J :bn<cr>
-map K :bp<cr>
+noremap J :bn<cr>
+noremap K :bp<cr>
 
-noremap <Up> <C-a>
-noremap <Down> <C-x>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
