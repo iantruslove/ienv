@@ -6,6 +6,17 @@ The goal is to have robust, customizable and portable set of defaults for linux 
 
 **Tested** on macOS and linux hosts.
 
+**Table of Contents**
+
+- [Features](#features)
+- [Installation](#installation)
+- [Customizing / Extending](#customizing--extending)
+- [Shell](#shell)
+- [GIT](#git)
+- [Vim](#vim)
+- [Did you know ...?](#did-you-know-)
+- [Known issues](#known-issues)
+
 ## Features
 * easy to customize / extend
 * space aware smart/adaptive prompt
