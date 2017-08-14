@@ -46,24 +46,4 @@ echo $BEGIN_STR >> $HOME/.tmux.conf
 echo "if-shell '[ -r ~/.ienv/tmux ]' \"source-file ~/.ienv/tmux\"" >> $HOME/.tmux.conf
 echo $END_STR >> $HOME/.tmux.conf
 
-# install vimrc and pathogen
-if procced "setup vimrc and pathogen?" ; then
-    echo "\" IENV" >> $HOME/.vimrc
-    echo "if filereadable(glob(\"~/.ienv/vimrc\"))" >> $HOME/.vimrc
-    echo "    source ~/.ienv/vimrc" >> $HOME/.vimrc
-    echo "endif" >> $HOME/.vimrc
-    echo "\" VNEI" >> $HOME/.vimrc
-    mkdir -p $HOME/.vim/swapfiles/
-
-    echo "installing pathogen.vim and basic plugins ..."
-    mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && \
-    curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-    pushd
-    cd ~/.vim/bundle
-    git clone https://github.com/altercation/vim-colors-solarized.git
-    git clone https://github.com/ctrlpvim/ctrlp.vim.git
-    popd
-fi
-
 echo "DONE: You should now restart your session/terminal"
