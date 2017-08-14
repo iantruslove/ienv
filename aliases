@@ -9,27 +9,14 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 
 alias dl="cd ~/Downloads"
-alias p="cd ~/Projects"
-alias w="cd /Work/"
-alias gp="cd $GOPATH"
+alias p="cd ~/projects"
 
 alias ls='ls'
-alias ll='ls -ahl'
-
-### git and related
-alias g='git'
-alias s='git status'
-alias a='git add'
-alias c='git commit'
-alias cm='git commit -m'
-alias d='git diff'
-alias co='git checkout'
-# __git_complete gco _git_checkout
-alias l="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) - %C(normal)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(bold normal)%s%C(reset) %C(cyan)- %an%C(reset)'"
+alias l='ls -ahl'
+alias ll='ls -hl'
 
 ### tools
-alias v='vim'
-alias pw='openssl rand -base64 16'
+alias pw='openssl rand -base64 32'
 
 ### system
 # IP addresses
