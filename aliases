@@ -34,6 +34,7 @@ alias ips='ips'
 if [[ $OSTYPE == darwin* ]]; then
   alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup'
   alias flushdns='sudo killall -HUP mDNSResponder'
+  alias fixvideo='sudo killall VDCAssistant'
 
   # Hide/show all desktop icons (useful when presenting)
   alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
