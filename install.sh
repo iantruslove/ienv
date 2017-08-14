@@ -46,4 +46,26 @@ echo $BEGIN_STR >> $HOME/.tmux.conf
 echo "if-shell '[ -r ~/.ienv/tmux ]' \"source-file ~/.ienv/tmux\"" >> $HOME/.tmux.conf
 echo $END_STR >> $HOME/.tmux.conf
 
+# Leiningen
+# Symlink profiles.clj into ~/.lein
+mkdir -p $HOME/.lein
+if [ -h $HOME/.lein/profiles.clj ]; then    # it exists, and it's a symlink
+    if proceed "Replace symlinked .lein/profiles.clj?" ; then
+        rm $HOME/.lein/profiles.clj
+        ln -s $HOME/.ienv/lein/profiles.clj $HOME/.lein/profiles.clj
+    fi
+elif [ -f $HOME/.lein/profiles.clj ]; then  # it exists, and it's a file
+    if proceed "Overwrite .lein/profiles.clj?" ; then
+        mv $HOME/.lein/profiles.clj $HOME/.lein/profiles.clj.`date "+%Y%m%d-%H%M%S"`
+        ln -s $HOME/.ienv/lein/profiles.clj $HOME/.lein/profiles.clj
+    else
+        echo "Leiningen not fully installed"
+    fi
+else
+    ln -s $HOME/.ienv/lein/profiles.clj $HOME/.lein/profiles.clj
+fi
+
+ln -s $HOME/.ienv/lein/src/ $HOME/.lein/src
+
+
 echo "DONE: You should now restart your session/terminal"
