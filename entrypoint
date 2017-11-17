@@ -13,3 +13,4 @@ source $IENV/bash-history
 source $IENV/aliases
 source $IENV/coloring
 source $IENV/prompt
+source $IENV/ssh
