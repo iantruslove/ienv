@@ -14,3 +14,5 @@ source $IENV/aliases
 source $IENV/coloring
 source $IENV/prompt
 source $IENV/ssh
+
+for f in $IENV/site/*; do source $f; done
