@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ## fix-agent - from Joe's https://gist.github.com/joegallo/84df64e178a5ba25899b
 function agent-path
 {
