@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # cd dir1 same as dir1
-shopt -s autocd
+#shopt -s autocd
 
 # auto correct spelling
 shopt -s cdspell
@@ -9,7 +9,7 @@ shopt -s cdspell
 # save multiline commands in same history entry
 shopt -s cmdhist
 
-shopt -s dirspell
+#shopt -s dirspell
 
 # append instead of overwrite history file
 shopt -s histappend

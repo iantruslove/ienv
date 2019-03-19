@@ -8,3 +8,5 @@ set show-all-if-ambiguous on
 set bell-style visible
 
 set skip-completed-text on
+
+set mark-directories On

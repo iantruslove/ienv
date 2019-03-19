@@ -14,5 +14,8 @@ source $IENV/aliases
 source $IENV/coloring
 source $IENV/prompt
 source $IENV/ssh
+source $IENV/aws
+source $IENV/python
+source $IENV/rust
 
 for f in $IENV/site/*; do source $f; done

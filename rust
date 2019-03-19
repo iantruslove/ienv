@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+CARGODIR="$HOME/.cargo"
+
+if [[ -d $CARGODIR ]] ; then
+    export PATH="$CARGODIR/bin:$PATH"
+    #export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
