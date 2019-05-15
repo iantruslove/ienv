@@ -10,6 +10,7 @@ IENV=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 # load components
 source $IENV/env
 source $IENV/bash-history
+source $IENV/bash-completion
 source $IENV/aliases
 source $IENV/coloring
 source $IENV/prompt
