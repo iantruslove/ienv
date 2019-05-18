@@ -33,3 +33,17 @@ function fix-agent
     export SSH_AUTH_SOCK="$(find-agent)"
     ssh-add -l > /dev/null
 }
+
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    if [[ -x $(which keychain) ]]; then
+        # Keychain is wicked smaht, but not necessarily installed
+        eval `keychain --eval --agents ssh` > /dev/null
+    else
+        ssh-agent > /dev/null
+    fi
+fi
+
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    fix-agent
+fi
