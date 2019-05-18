@@ -18,7 +18,7 @@ _complete_ssh_hosts ()
     return 0
 }
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+if [[ "$OSTYPE" == "darwin" ]] && [ -f $(brew --prefix)/etc/bash_completion ]; then
     # `brew install bash-completion` FtW
     . $(brew --prefix)/etc/bash_completion
 else
